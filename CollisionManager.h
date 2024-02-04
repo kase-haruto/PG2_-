@@ -1,10 +1,11 @@
 ﻿#pragma once
 #include "Collider.h"
-#include <map>
+#include <list>
+
 
 class CollisionManager {
 private:
-    std::map<int, Collider*> objectMap; // オブジェクトリスト
+    std::list<Collider*> colliders_; // オブジェクトリスト
 
     // シングルトンインスタンス
     static CollisionManager* instance;

@@ -5,12 +5,16 @@
 
 class Stage {
 
+public:
+	static bool isClear;
+	static bool isGameOver;
+
 private:
 	Collider* player;
 	Collider* enemy;
 
 	// シングルトンインスタンスを保持
-	 CollisionManager* collision = CollisionManager::GetInstance();;
+	 CollisionManager* collision = CollisionManager::GetInstance();
 
 public:
 	Stage();

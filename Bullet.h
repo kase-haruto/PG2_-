@@ -18,6 +18,7 @@ public:
     void OnCollision()override;
 
     void Init(Vec2f pos);
+    void Init()override;
     void Update();
     void Draw();
 

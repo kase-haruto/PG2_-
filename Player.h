@@ -16,13 +16,15 @@ private:
 	void InitializeBullets();
 	void DeleteInactive(); //使用していない弾の配列の削除
 
+	void Dead();
+
 public:
 	Player();
 	~Player();
 
 	void OnCollision() override;
 
-	void Init();
+	void Init()override;
 	void Update()override;
 	void Draw()override;
 

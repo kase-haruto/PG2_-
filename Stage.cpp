@@ -1,8 +1,11 @@
 ﻿#include "Stage.h"
+
+bool Stage::isClear = false;
+bool Stage::isGameOver = false;
+
 Stage::Stage() {	
 	player = new Player();
 	enemy = new Enemy();
-
 }
 
 Stage::~Stage() {
@@ -10,7 +13,10 @@ Stage::~Stage() {
 	delete enemy;
 }
 
-void Stage::Init() {}
+void Stage::Init() {
+	enemy->Init();
+	player->Init();
+}
 
 void Stage::Update() {
 	player->Update();

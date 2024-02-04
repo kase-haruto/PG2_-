@@ -47,15 +47,6 @@
     <Filter Include="Game\Object\Bullet">
       <UniqueIdentifier>{cb419d97-b35e-487b-8aad-1d91f9dc6587}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Scene">
-      <UniqueIdentifier>{226fcc62-9306-49dc-987b-8fd8f9976b32}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Scene\Stage">
-      <UniqueIdentifier>{caf0b998-3dc0-4e9a-a6b9-ddb056d04696}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Collision">
-      <UniqueIdentifier>{726349f4-130a-45b7-a725-d8e6104e1205}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Object\Base\Shapes">
       <UniqueIdentifier>{dd9a295c-5de9-47e8-8a40-ab90d12c3419}</UniqueIdentifier>
     </Filter>
@@ -68,8 +59,47 @@
     <Filter Include="Game\Object\Entity\Character">
       <UniqueIdentifier>{da5731d8-4d27-446f-a929-3d394fab1996}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Lib\InputManager">
+    <Filter Include="Game\MyManager">
+      <UniqueIdentifier>{a5f9afd3-666f-4e31-a1c4-5960d5854a5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MyManager\SceneManager">
+      <UniqueIdentifier>{262fb64a-3c9a-4647-b296-eac6a30876d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MyManager\CollisionManager">
+      <UniqueIdentifier>{7c85e0b5-961c-40cb-a3af-1fc2c400f8e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MyManager\GameManager">
+      <UniqueIdentifier>{a58dcfdf-5ec6-4594-8f43-8d4ca5d1bdef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MyManager\InputManager">
       <UniqueIdentifier>{f5707450-0449-4311-ac5a-9297f0666915}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Base\Collider">
+      <UniqueIdentifier>{726349f4-130a-45b7-a725-d8e6104e1205}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\BackGround">
+      <UniqueIdentifier>{a567a836-70aa-4611-b90b-7d5e10ffb352}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene">
+      <UniqueIdentifier>{226fcc62-9306-49dc-987b-8fd8f9976b32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene\Stage">
+      <UniqueIdentifier>{caf0b998-3dc0-4e9a-a6b9-ddb056d04696}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene\SceneBase">
+      <UniqueIdentifier>{b04b5fe6-ee59-4291-b9f5-3f4cf613a564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene\ScenePlay">
+      <UniqueIdentifier>{e05db45c-a294-4333-ac51-57ca251dcd81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene\SceneClear">
+      <UniqueIdentifier>{e259f05a-46dd-4ae1-8f87-6c2b00bc2671}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene\SceneTitle">
+      <UniqueIdentifier>{b9a147eb-247b-4ba3-a141-76f8f65c168c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene\SceneGameOver">
+      <UniqueIdentifier>{0de0e06d-fbc6-4360-bcf8-43136cbbba93}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -116,17 +146,44 @@
     <ClCompile Include="Stage.cpp">
       <Filter>Game\Scene\Stage</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionManager.cpp">
-      <Filter>Collision</Filter>
-    </ClCompile>
     <ClCompile Include="Collider.cpp">
-      <Filter>Collision</Filter>
+      <Filter>Game\Object\Base\Collider</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
       <Filter>Game\Object\Entity\Character</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
-      <Filter>Game\Lib\InputManager</Filter>
+      <Filter>Game\MyManager\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Base.cpp">
+      <Filter>Game\Scene\SceneBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Play.cpp">
+      <Filter>Game\Scene\ScenePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Title.cpp">
+      <Filter>Game\Scene\SceneTitle</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Clear.cpp">
+      <Filter>Game\Scene\SceneClear</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Game\MyManager\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Game\MyManager\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Game\MyManager\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Game\Object\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad.cpp">
+      <Filter>Game\Object\Base\Shapes\Quad</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_GameOver.cpp">
+      <Filter>Game\Scene\SceneGameOver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,17 +292,44 @@
     <ClInclude Include="Stage.h">
       <Filter>Game\Scene\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionManager.h">
-      <Filter>Collision</Filter>
-    </ClInclude>
     <ClInclude Include="Collider.h">
-      <Filter>Collision</Filter>
+      <Filter>Game\Object\Base\Collider</Filter>
     </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>Game\Object\Entity\Character</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
-      <Filter>Game\Lib\InputManager</Filter>
+      <Filter>Game\MyManager\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Base.h">
+      <Filter>Game\Scene\SceneBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Play.h">
+      <Filter>Game\Scene\ScenePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Title.h">
+      <Filter>Game\Scene\SceneTitle</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Clear.h">
+      <Filter>Game\Scene\SceneClear</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Game\MyManager\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Game\MyManager\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Game\MyManager\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Game\Object\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad.h">
+      <Filter>Game\Object\Base\Shapes\Quad</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_GameOver.h">
+      <Filter>Game\Scene\SceneGameOver</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

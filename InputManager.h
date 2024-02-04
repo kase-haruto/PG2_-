@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include<Novice.h>
 class InputManager {
 
 private:

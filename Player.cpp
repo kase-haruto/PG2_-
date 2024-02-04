@@ -1,17 +1,27 @@
 ﻿#include "Player.h"
 #include"Environment.h"
 #include"InputManager.h"
+#include"CollisionManager.h"
+#include"Stage.h"
+
 Player::Player() {
+	SetOBJType(PLAYER);
+
+	CollisionManager* collisionManager = CollisionManager::GetInstance();
+	collisionManager->CollisionSubscrive(this);
+
 	gh_ = Novice::LoadTexture("white1x1.png");
 	pos_ = { kWindowSize.x / 2.0f,kWindowSize.y / 2.0f };
 	speed_ = 8.0f;
 	width_ = 64.0f;
 	height_ = 64.0f;
+	radius_ = 64 / 2;
 	color_ = 0xffffffff;
-
+	hp_ = 10;
+	initHP_ = 10;
 
 	this->InitializeBullets();
-	CollisionType::PLAYER;
+	
 }
 
 Player::~Player() {}
@@ -22,6 +32,7 @@ void Player::InitializeBullets() {
 }
 
 void Player::Init() {
+	pos_ = { kWindowSize.x / 2.0f,kWindowSize.y / 2.0f };
 	hp_ = initHP_;//体力のリセット
 	isAlive_ = true;//フラグのリセット
 }
@@ -66,26 +77,37 @@ void Player::Shoot() {
 		bullet->Update();
 	}
 
-	this->DeleteInactive();
+//	this->DeleteInactive();
 }
 
 
 //playerが何かと衝突した際の処理
 void Player::OnCollision() {
-	
+	hp_--;
 }
 
+void Player::Dead() {
+	if (hp_ <= 0) {
+		Stage::isGameOver = true;
+	}
+}
 
 void Player::Update() {
 	if (isAlive_) {
 		this->Move();
 		this->Shoot();
+
+		isCollisionEnabled_ = true; //生きている間当たり判定をとるようにする
+		Dead();
 	} else {
 		this->Init();
+
+		isCollisionEnabled_ = false; //生きている間当たり判定をとるようにする
 	}
 }
 
 void Player::Draw() {
+	Novice::ScreenPrintf(50, 80, "player：life = %d", hp_);
 	if (isAlive_) {
 		Character::Draw();
 	}

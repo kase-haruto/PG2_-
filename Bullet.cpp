@@ -3,21 +3,25 @@
 #include"CollisionManager.h"
 
 Bullet::Bullet() {
-	speed_ = 10.0f;
-	radius_ = 15.0f;
+	SetOBJType(BULLET);
 
 	CollisionManager* collisionManager = CollisionManager::GetInstance();
 	collisionManager->CollisionSubscrive(this);
+
+	speed_ = 10.0f;
+	radius_ = 15.0f;
+
+	
 }
 
 void Bullet::Init(Vec2f pos) {
 	pos_ = pos;
 	speed_ = 12.0f;
 	color_ = 0xff0000ff;
-	isShoot_ = true;
-
-	
+	isShoot_ = true;	
 }
+
+void Bullet::Init() {}
 
 void Bullet::Move() {
 	pos_.y -= speed_;
@@ -51,23 +55,29 @@ void Bullet::Update() {
 	if (isShoot_) {
 		this->Move();
 		this->OutOfScreen();
-		OnCollision();
+
+		isCollisionEnabled_ = true; //生きている間当たり判定をとるようにする
+	} else {
+		isCollisionEnabled_ = false;
 	}
 }
 
 void Bullet::OnCollision() {
 	isShoot_ = false;
+	pos_ = { 0,0 };
 }
 
 void Bullet::Draw() {
-	Novice::DrawEllipse(
-		static_cast<int>(pos_.x),
-		static_cast<int>(pos_.y),
-		static_cast<int>(radius_),
-		static_cast<int>(radius_),
-		0.0f, color_,
-		kFillModeSolid
-	);
+	if (isShoot_) {
+		Novice::DrawEllipse(
+			static_cast<int>(pos_.x),
+			static_cast<int>(pos_.y),
+			static_cast<int>(radius_),
+			static_cast<int>(radius_),
+			0.0f, color_,
+			kFillModeSolid
+		);
+	}	
 }
 
 

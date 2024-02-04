@@ -16,7 +16,5 @@ public:
 	float GetSpeed() const;
 	void SetSpeed(const float speed);
 
-	
-
 };
 
